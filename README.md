@@ -1,5 +1,5 @@
 # Aim
-perma-hl provides a quick way to highlight segments of text, allowing easy navigation
+focus.nvim provides a quick way to highlight segments of text, allowing easy navigation
 between screens while maintaining visual focus on important sections.
 
 # Inspiration
@@ -11,11 +11,8 @@ I thought was a really pretty and peaceful way to dim and focus segments of text
 a result I created this plugin as an unobtrusive way to focus my attention on
 specified areas of text.
 
-# Screenshot:
-
-
 # Installation:
-## Lazy Install
+### Lazy Install
 To install using Lazy:
 ```lua
 return {
@@ -23,19 +20,22 @@ return {
 }
 ```
 
-## Keymaps
+## Keymapping
 To map the functions to the keys use the following:
 ```lua
 require("focus"):focus_visual_selection() -- In Visual and Visual-Line mode.
 require("focus"):unfocus()
 ```
-Important: `focus_visual_selection` can only be called within Visual or Visual-Line mode.
 
-An example in my configuration (using which-key) is as follows:
-```
+`focus_visual_selection` can only works within Visual or Visual-Line mode. There is logic
+within `focus_visual_selection` to distinguish between Visual and Visual-Line mode so
+keymapping under Visual mode only is sufficient.
+
+An example keymapping using which-key (used in my configuration) is as follows:
+```lua
 {
     mode = {"v"},
-         {"<leader>l", function() require("focus"):focus_visual_selection() end, desc = "Focus Selection"},
+    {"<leader>l", function() require("focus"):focus_visual_selection() end, desc = "Focus Selection"},
 },
 {
     mode = {"n"},

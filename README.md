@@ -2,6 +2,13 @@
 focus.nvim provides a quick way to highlight segments of text, allowing easy navigation
 between screens while maintaining visual focus on important sections.
 
+An example of the plugin in use during my learning of Assembly is below.
+
+![focus.nvim screenshot](./images/screenshot.png)
+
+(ignore the bland syntax highlighting, I have not yet found a highlighter that I
+like)
+
 # Inspiration
 In my studies into assembly code I constantly found myself reviewing two files side-
 by-side whilst documenting my learning on a third screen. As I switched focus between

@@ -91,6 +91,12 @@ function M:unfocus()
 end
 
 function M:focus_visual_selection()
+    local mode = vim.api.nvim_exec2("echo mode()", { output = true }).output
+    if mode ~= "v" and mode ~= "V" then
+        print("ERROR: Function can only be called in Visual or Visual-Line mode")
+        return
+    end
+
     local start_pos = vim.fn.getcharpos(".")
     local end_pos = vim.fn.getcharpos("v")
 
@@ -99,8 +105,6 @@ function M:focus_visual_selection()
     coords.end_col = end_pos[3]
     coords.start_row = start_pos[2]
     coords.start_col = start_pos[3]
-
-    local mode = vim.api.nvim_exec2("echo mode()", { output = true }).output
 
     if mode == "V" then -- is mode Visual Line?
         if coords.end_row > coords.start_row then

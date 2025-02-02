@@ -6,8 +6,8 @@ An example of the plugin in use during my learning of Assembly is below.
 
 ![focus.nvim screenshot](./images/screenshot.png)
 
-(ignore the bland syntax highlighting, I have not yet found a highlighter that I
-like)
+(ignore the bland assembly syntax highlighting, I have not yet found a highlighter that
+I like)
 
 # Inspiration
 In my studies into assembly code I constantly found myself reviewing two files side-

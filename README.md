@@ -15,6 +15,30 @@ specified areas of text.
 
 
 # Installation:
+## Lazy Install
 To install using Lazy:
+```lua
+return {
+    "hahaharry10/focus.nvim",
+}
 ```
+
+## Keymaps
+To map the functions to the keys use the following:
+```lua
+require("focus"):focus_visual_selection() -- In Visual and Visual-Line mode.
+require("focus"):unfocus()
+```
+Important: `focus_visual_selection` can only be called within Visual or Visual-Line mode.
+
+An example in my configuration (using which-key) is as follows:
+```
+{
+    mode = {"v"},
+         {"<leader>l", function() require("focus"):focus_visual_selection() end, desc = "Focus Selection"},
+},
+{
+    mode = {"n"},
+    {"<leader>l", function() require("focus"):unfocus() end, desc = "Unfocus text" },
+}
 ```

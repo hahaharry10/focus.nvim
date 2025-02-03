@@ -63,25 +63,27 @@ function M:highlight(coords)
                 0,
                 -1
             )
-        elseif i == coords.start_row and coords.start_col > 1 then
-            vim.api.nvim_buf_add_highlight(
+        else
+            if i == coords.start_row and coords.start_col > 1 then
+                vim.api.nvim_buf_add_highlight(
                 vim.api.nvim_get_current_buf(),
                 self.namespace_id,
                 hl_group,
                 i-1,
                 0,
                 coords.start_col-1
-            )
-
-        elseif i == coords.end_row and coords.end_col < vim.fn.col({coords.end_row, "$"}) then
-            vim.api.nvim_buf_add_highlight(
+                )
+            end
+            if i == coords.end_row and coords.end_col < vim.fn.col({coords.end_row, "$"}) then
+                vim.api.nvim_buf_add_highlight(
                 vim.api.nvim_get_current_buf(),
                 self.namespace_id,
                 hl_group,
                 i-1,
                 coords.end_col,
                 -1
-            )
+                )
+            end
         end
     end
 end

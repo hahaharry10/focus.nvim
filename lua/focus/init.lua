@@ -10,7 +10,7 @@ local M = {}
 function M:highlight(coords)
     coords = coords or {}
 
-    print(vim.inspect(coords))
+    -- print(vim.inspect(coords))
 
     if coords == {} then
         return
